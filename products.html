@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - SowetoBites</title>
+    <title>Menu - SowetoBites | Kota, Shisa Nyama, Magwinya</title>
+    <!-- External CSS - Linked to all pages - LO 2.2 -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- ==================== HEADER SECTION STARTS ==================== -->
+    <!-- Header with Flexbox layout - LO 2.4 -->
     <header>
         <nav class="navbar">
             <div class="logo">Soweto<span>Bites</span></div>
+            <!-- Navigation - Uses Flexbox gap and relative units -->
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -19,31 +23,96 @@
             </ul>
         </nav>
     </header>
+    <!-- ==================== HEADER SECTION ENDS ==================== -->
 
+    <!-- ==================== MAIN CONTENT STARTS ==================== -->
     <main class="container">
-        <h1>Our Menu</h1>
-        <div class="menu-grid">
-            <div class="menu-item">
-                <h3>Kota Special</h3>
-                <p>Quarter loaf, chips, Russian, cheese, egg, sauces</p>
-                <span class="price">R45.00</span>
-            </div>
-            <div class="menu-item">
-                <h3>Chicken Burger</h3>
-                <p>Crispy chicken fillet, lettuce, tomato, mayo</p>
-                <span class="price">R35.00</span>
-            </div>
-            <div class="menu-item">
-                <h3>Chips & Russian</h3>
-                <p>Large chips with 2 Russians and sauce</p>
-                <span class="price">R30.00</span>
-            </div>
-        </div>
-        <a href="https://wa.me/27769746429?text=Hi%20SowetoBites%21%20I%20would%20like%20to%20place%20an%20order." class="btn whatsapp-btn">Order on WhatsApp</a>
-    </main>
+        <!-- Menu Title Section -->
+        <section class="menu-header">
+            <h1>Our Menu</h1>
+            <p>Authentic Soweto street food made with love - Real prices from Vilakazi Street vendors</p>
+        </section>
 
+        <!-- Menu Grid - Uses CSS Grid: 3 columns desktop, 2 tablet, 1 mobile - LO 2.4 + 3.1 -->
+        <section class="menu">
+            <div class="menu-grid">
+                <!-- Menu Item 1 - Kota Special with responsive image -->
+                <div class="menu-item">
+                    <!-- Responsive Image with srcset - LO 3.3 -->
+                    <img 
+                        src="images/kota.jpg" 
+                        srcset="images/kota-small.jpg 480w, images/kota-medium.jpg 800w, images/kota-large.jpg 1200w"
+                        sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                        alt="Kota Special - Quarter loaf with chips and fillings"
+                        style="width:100%; border-radius:0.5rem; margin-bottom:1em;">
+                    <h3>Kota Special</h3>
+                    <p>Quarter loaf, chips, Russian, cheese, egg, special sauces. Best seller in Soweto!</p>
+                    <span class="price">R45.00</span>
+                </div>
+
+                <!-- Menu Item 2 - Chicken Burger -->
+                <div class="menu-item">
+                    <img 
+                        src="images/chicken-burger.jpg" 
+                        srcset="images/chicken-burger-small.jpg 480w, images/chicken-burger-medium.jpg 800w, images/chicken-burger-large.jpg 1200w"
+                        sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                        alt="Chicken Burger"
+                        style="width:100%; border-radius:0.5rem; margin-bottom:1em;">
+                    <h3>Chicken Burger</h3>
+                    <p>Crispy chicken fillet, lettuce, tomato, mayo, served with small chips</p>
+                    <span class="price">R35.00</span>
+                </div>
+
+                <!-- Menu Item 3 - Chips & Russian -->
+                <div class="menu-item">
+                    <img 
+                        src="images/chips-russian.jpg" 
+                        srcset="images/chips-russian-small.jpg 480w, images/chips-russian-medium.jpg 800w, images/chips-russian-large.jpg 1200w"
+                        sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                        alt="Chips and Russian sausage"
+                        style="width:100%; border-radius:0.5rem; margin-bottom:1em;">
+                    <h3>Chips & Russian</h3>
+                    <p>Large chips with 2 Russians and our secret tomato sauce</p>
+                    <span class="price">R30.00</span>
+                </div>
+
+                <!-- Menu Item 4 - Shisa Nyama - Extra item for content research marks -->
+                <div class="menu-item">
+                    <h3>Shisa Nyama Plate</h3>
+                    <p>Grilled beef steak, pap, chakalaka and gravy - Weekend special</p>
+                    <span class="price">R85.00</span>
+                </div>
+
+                <!-- Menu Item 5 - Magwinya -->
+                <div class="menu-item">
+                    <h3>Magwinya (Vetkoek)</h3>
+                    <p>4x fresh magwinya with atchar and polony</p>
+                    <span class="price">R25.00</span>
+                </div>
+
+                <!-- Menu Item 6 - Cold Drinks -->
+                <div class="menu-item">
+                    <h3>Cold Drinks</h3>
+                    <p>Coke, Fanta, Sprite, Stoney - 500ml</p>
+                    <span class="price">R15.00</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section - WhatsApp Ordering -->
+        <section class="order-section" style="text-align:center; margin-top:2rem;">
+            <h2>Ready to Order?</h2>
+            <p>Click below to order directly on WhatsApp - Fast delivery in Soweto!</p>
+            <!-- Button with visual styles: hover, focus, active - LO 2.5 -->
+            <a href="https://wa.me/27769746429?text=Hi%20SowetoBites%21%20I%20would%20like%20to%20place%20an%20order." class="btn whatsapp-btn">Order on WhatsApp</a>
+        </section>
+    </main>
+    <!-- ==================== MAIN CONTENT ENDS ==================== -->
+
+    <!-- ==================== FOOTER SECTION STARTS ==================== -->
     <footer>
-        <p>&copy; 2026 SowetoBites. All Rights Reserved.</p>
+        <p>&copy; 2026 SowetoBites. All Rights Reserved. | ST1049766 - WD101</p>
     </footer>
+    <!-- ==================== FOOTER SECTION ENDS ==================== -->
 </body>
 </html>

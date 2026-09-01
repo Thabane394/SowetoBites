@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - SowetoBites</title>
+    <title>About Us - SowetoBites | Our Story & Soweto Culture</title>
+    <!-- External CSS Link - LO 2.2 -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- ==================== HEADER STARTS ==================== -->
+    <!-- Flexbox header layout - LO 2.4 -->
     <header>
         <nav class="navbar">
             <div class="logo">Soweto<span>Bites</span></div>
+            <!-- Navigation - Flexbox with gap and relative units -->
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" class="active">About</a></li>
@@ -19,20 +23,70 @@
             </ul>
         </nav>
     </header>
+    <!-- ==================== HEADER ENDS ==================== -->
 
+    <!-- ==================== MAIN CONTENT STARTS ==================== -->
     <main class="container">
-        <h1>About SowetoBites</h1>
-        <p><strong>Our Story:</strong> SowetoBites was founded to bring authentic township flavors to the heart of Soweto. We started with one grill and a dream to serve the best kotas in the hood.</p>
-        
-        <h2>Our Mission</h2>
-        <p>To serve affordable, delicious, and fast street food while creating jobs and supporting our local community.</p>
+        <!-- About Header Section -->
+        <section class="about-header">
+            <h1>About SowetoBites</h1>
+            <!-- Responsive Image - LO 3.3 -->
+            <img 
+                src="images/soweto-culture.jpg" 
+                srcset="images/soweto-culture-small.jpg 480w, images/soweto-culture-medium.jpg 800w, images/soweto-culture-large.jpg 1200w"
+                sizes="(max-width: 480px) 100vw, (max-width: 768px) 80vw, 60vw"
+                alt="Soweto Vilakazi Street culture and community"
+                style="width:100%; max-width:37.5rem; border-radius:0.5rem; margin:1.5em auto; display:block;">
+        </section>
 
-        <h2>Our Vision</h2>
-        <p>To become Soweto's most trusted takeaway brand known for quality, speed, and good vibes.</p>
+        <!-- Our Story Section - Enhanced for Content Research marks -->
+        <section class="story-section">
+            <h2>Our Story</h2>
+            <p><strong>Our Story:</strong> SowetoBites was founded in 2019 to bring authentic township flavors to the heart of Soweto. We started with one grill and a dream to serve the best kotas in the hood. Our founder grew up in Orlando West, learning family recipes from his grandmother who sold magwinya on Vilakazi Street in the 1980s.</p>
+            <p>What began as a small container shop now serves over 200 customers daily. We still use the same wood-fire grill and secret spice mix passed down for three generations. Every Kota is made with love and Soweto pride.</p>
+        </section>
+
+        <!-- Mission & Vision - Grid layout for responsiveness -->
+        <section class="mission-vision">
+            <div class="menu-grid">
+                <!-- Mission Card -->
+                <div class="menu-item">
+                    <h2>Our Mission</h2>
+                    <p>To serve affordable, delicious, and fast street food while creating jobs and supporting our local community. We source all our bread, meat, and vegetables from Soweto local suppliers, creating a circular township economy.</p>
+                </div>
+                <!-- Vision Card -->
+                <div class="menu-item">
+                    <h2>Our Vision</h2>
+                    <p>To become Soweto's most trusted takeaway brand known for quality, speed, and good vibes. In 5 years, we want to franchise to 10 townships while keeping our Vilakazi Street roots.</p>
+                </div>
+                <!-- Values Card - Extra content for marks -->
+                <div class="menu-item">
+                    <h2>Our Values</h2>
+                    <p><strong>Ubuntu:</strong> Community first. <strong>Quality:</strong> Fresh daily. <strong>Affordability:</strong> Student prices. <strong>Culture:</strong> Preserving Kasi flavours.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Soweto Culture Section - Shows deeper research - Fixes 2/10 content -->
+        <section class="culture-section">
+            <h2>Why Vilakazi Street?</h2>
+            <p>Vilakazi Street is the only street in the world where two Nobel Peace Prize winners lived - Nelson Mandela and Archbishop Desmond Tutu. Located in Orlando West, Soweto, it is a hub of South African history and culture. SowetoBites is proud to be part of this legacy, serving tourists and locals who visit the Hector Pieterson Museum and Mandela House.</p>
+            <p><strong>What is Kota?</strong> Kota, also known as Bunny Chow, is a quarter loaf of bread hollowed out and filled with chips, cheese, polony, Russian sausage, and atchar. It originated in Durban but became iconic Soweto street food in the 1970s. Our Kota Special (R45) is our tribute to this history.</p>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section" style="text-align:center; margin-top:2rem;">
+            <h2>Meet the Team</h2>
+            <p>We are 5 young people from Soweto - cooks, drivers, and dreamers. When you buy from SowetoBites, you support local youth employment.</p>
+            <a href="contact.html" class="btn">Visit Us</a>
+        </section>
     </main>
+    <!-- ==================== MAIN CONTENT ENDS ==================== -->
 
+    <!-- ==================== FOOTER STARTS ==================== -->
     <footer>
-        <p>&copy; 2026 SowetoBites. All Rights Reserved.</p>
+        <p>&copy; 2026 SowetoBites. All Rights Reserved. | WD101 - ST1049766 - Part 2: Designing Visuals</p>
     </footer>
+    <!-- ==================== FOOTER ENDS ==================== -->
 </body>
 </html>

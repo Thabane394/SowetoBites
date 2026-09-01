@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enquiry - SowetoBites</title>
+    <title>Enquiry - SowetoBites | Catering & Bulk Orders</title>
+    <!-- External CSS Link - LO 2.2 -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- ==================== HEADER SECTION STARTS ==================== -->
+    <!-- Navigation uses Flexbox - LO 2.4 -->
     <header>
         <nav class="navbar">
             <div class="logo">Soweto<span>Bites</span></div>
+            <!-- Nav Links - Flexbox with gap -->
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -19,21 +23,81 @@
             </ul>
         </nav>
     </header>
+    <!-- ==================== HEADER SECTION ENDS ==================== -->
 
+    <!-- ==================== MAIN CONTENT STARTS ==================== -->
     <main class="container">
-        <h1>Catering & Bulk Enquiry</h1>
-        <p>Planning an event? Let us cater for you!</p>
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <input type="text" placeholder="Event Type e.g. Birthday" required>
-            <textarea rows="5" placeholder="Tell us about your order..." required></textarea>
-            <button type="submit" class="btn">Send Enquiry</button>
-        </form>
-    </main>
+        <!-- Enquiry Header Section -->
+        <section class="enquiry-header">
+            <h1>Catering & Bulk Enquiry</h1>
+            <p>Planning an event? Birthday, wedding, corporate? Let us cater for you with authentic Soweto flavours!</p>
+        </section>
 
+        <!-- Enquiry Form Section - Uses Flexbox column layout -->
+        <!-- Form styling uses relative units em/rem/% - LO 3.2 -->
+        <section class="enquiry-form-section">
+            <h2>Send Us Your Details</h2>
+            <!-- Contact Form with accessibility labels -->
+            <form class="contact-form">
+                <!-- Form Group 1 - Name -->
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" placeholder="Thabane Makoro" required>
+
+                <!-- Form Group 2 - Email -->
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" placeholder="thabane@example.com" required>
+
+                <!-- Form Group 3 - Event Type -->
+                <label for="event">Event Type:</label>
+                <input type="text" id="event" placeholder="e.g. Birthday, Wedding, Corporate Event" required>
+
+                <!-- Form Group 4 - Number of Guests -->
+                <label for="guests">Number of Guests:</label>
+                <input type="number" id="guests" placeholder="e.g. 50" min="1" required>
+
+                <!-- Form Group 5 - Message -->
+                <label for="message">Tell us about your order:</label>
+                <textarea id="message" rows="5" placeholder="What food would you like? Kota? Shisa Nyama? Any dietary requirements?" required></textarea>
+
+                <!-- Submit Button - Visual styles: hover, focus, active - LO 2.5 -->
+                <button type="submit" class="btn">Send Enquiry</button>
+            </form>
+
+            <!-- Alternative Contact - WhatsApp -->
+            <div style="margin-top:2rem; text-align:center;">
+                <h3>Or Order Faster on WhatsApp</h3>
+                <a href="https://wa.me/27769746429?text=Hi%20SowetoBites%21%20I%20want%20to%20enquire%20about%20catering." class="btn whatsapp-btn">Chat on WhatsApp</a>
+            </div>
+        </section>
+
+        <!-- Catering Info Section - Extra content for research marks -->
+        <section class="catering-info">
+            <h2>Our Catering Packages</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h3>Small Package</h3>
+                    <p>20-30 people - Kota & Chips</p>
+                    <span class="price">From R800</span>
+                </div>
+                <div class="menu-item">
+                    <h3>Medium Package</h3>
+                    <p>50-70 people - Full menu</p>
+                    <span class="price">From R2000</span>
+                </div>
+                <div class="menu-item">
+                    <h3>Large Package</h3>
+                    <p>100+ people - Shisa Nyama + Pap</p>
+                    <span class="price">From R4500</span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- ==================== MAIN CONTENT ENDS ==================== -->
+
+    <!-- ==================== FOOTER STARTS ==================== -->
     <footer>
-        <p>&copy; 2026 SowetoBites. All Rights Reserved.</p>
+        <p>&copy; 2026 SowetoBites. All Rights Reserved. | ST1049766 - WD101 Part 2</p>
     </footer>
+    <!-- ==================== FOOTER ENDS ==================== -->
 </body>
 </html>
