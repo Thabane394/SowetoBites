@@ -1,0 +1,13 @@
+Sitemap for SowetoBites - ST1049766
+
+Homepage: index.html
+  -> About Us: about.html
+  -> Products/Menu: products.html
+  -> Enquiry/Order: enquiry.html
+  -> Contact Us: contact.html
+
+All pages link to: css/style.css
+Images folder: images/
+Structure: index.html -> about.html -> products.html -> enquiry.html -> contact.html
+
+Created for POE Part 1 feedback fix
