@@ -47,13 +47,13 @@ The site has 5 pages all linked from Home:
 
 ## Screenshots - Responsive Evidence (Required for Part 2)
 ### Desktop (1200px)
-![Desktop 1200px](images/desktop-1200px.png)
+![Desktop 1200px](images/deskop-1200px.png)
 
 ### Tablet (768px)
-![Tablet 768px](images/tablet-768px.png)
+![Tablet 768px](images/deskop-768px.png)
 
 ### Mobile (480px)
-![Mobile 480px](images/mobile-480px.png)
+![Mobile 480px](images/deskop-480px.png)
 
 ## Changelog - Record of Development and Feedback Fixes
 ### [2.0] - 2026-09-02 - Part 2: Designing Visuals
