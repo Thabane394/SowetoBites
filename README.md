@@ -4,7 +4,7 @@
 **Name:** Thabane Makoro
 **Student No:** ST1049766
 **Course:** WD101 - Web Development Fundamentals
-**GitHub Pages Live Link:** https://[your-username].github.io/SowetoBites-main/
+**GitHub Pages Live Link:** https://Thabane394.github.io/SowetoBites-main/
 
 ## Project Description
 SowetoBites is a community-focused website celebrating Soweto's food culture. The purpose is to act as an online guide where tourists, students and locals can discover authentic foods like Kota (R45), Shisa Nyama (R85) and Magwinya (R15), find trusted vendors in Vilakazi Street area, and support small businesses. Built with HTML5 semantic elements and external CSS3.
