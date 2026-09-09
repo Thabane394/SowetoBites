@@ -47,13 +47,13 @@ The site has 5 pages all linked from Home:
 
 ## Screenshots - Responsive Evidence (Required for Part 2)
 ### Desktop (1200px)
-[Screenshot to be added]
+![Desktop 1200px](images/desktop-1200px.png)
 
 ### Tablet (768px)
-[Screenshot to be added - layout changes to 2 columns]
+![Tablet 768px](images/tablet-768px.png)
 
 ### Mobile (480px)
-[Screenshot to be added - layout changes to single column, nav becomes column]
+![Mobile 480px](images/mobile-480px.png)
 
 ## Changelog - Record of Development and Feedback Fixes
 ### [2.0] - 2026-09-02 - Part 2: Designing Visuals
