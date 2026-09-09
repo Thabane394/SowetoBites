@@ -14,6 +14,7 @@ SowetoBites is a community-focused website celebrating Soweto's food culture. Th
 The site has 5 pages all linked from Home:
 - Home (index.html) -> About, Products, Enquiry, Contact
 - All pages share same header/footer and css/style.css
+  
 ![Sitemap](images/sowetobites_sitemap.png)
 
 **Planning:**
