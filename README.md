@@ -3,7 +3,7 @@
 ## Student Details
 **Name:** Thabane Makoro
 **Student No:** ST1049766
-**Course:** WD101 - Web Development Fundamentals
+**Course:** WEDE5020 - Web Development 
 **GitHub Pages Live Link:** https://Thabane394.github.io/SowetoBites-main/
 
 ## Project Description
@@ -84,4 +84,4 @@ The site has 5 pages all linked from Home:
 - Mozilla Developer Network. (2024). Responsive images srcset.
 
 ## Licence
-Educational project for IIE WD101.
+Educational project for IIE WEDE5020.
