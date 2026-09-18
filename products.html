@@ -39,17 +39,19 @@
                 <!-- Menu Item 1 - Kota Special with responsive image -->
                 <div class="menu-item">
                     <!-- Responsive Image with srcset - LO 3.3 - keep srcset add fallback -->
-                    <img 
-                        src="images/kota.jpg" 
-                        srcset="images/kota-small.jpg 480w, images/kota-medium.jpg 800w, images/kota-large.jpg 1200w"
-                        sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
-                        alt="Kota Special - Quarter loaf with chips and fillings"
-                        onerror="this.onerror=null; this.removeAttribute('srcset'); this.src='https://images.unsplash.com/photo-1521390188846-e2a3a97453a0?w=800'"
-                        style="width:100%; border-radius:0.5rem; margin-bottom:1em; height:180px; object-fit:cover; display:block;">
-                    <h3>Kota Special</h3>
-                    <p>Quarter loaf, chips, Russian, cheese, egg, special sauces. Best seller in Soweto!</p>
-                    <span class="price">R45.00</span>
-                </div>
+                   <!-- KOTA SPECIAL - FIXED -->
+            <div class="menu-item">
+              <img 
+                  src="https://images.unsplash.com/photo-1521390188846-e2a3a97453a0?w=500"
+                 srcset="https://images.unsplash.com/photo-1521390188846-e2a3a97453a0?w=480 480w,
+                 https://images.unsplash.com/photo-1521390188846-e2a3a97453a0?w=800 800w"
+                sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                alt="Kota Special - Quarter loaf with chips, Russian, cheese"
+             loading="lazy">
+             <h3>Kota Special</h3>
+               <p>Quarter loaf, chips, Russian, cheese, egg, special sauces. Best seller in Soweto!</p>
+              <span class="price">R45.00</span>
+         </div>
 
                 <!-- Menu Item 2 - Chicken Burger -->
                 <div class="menu-item">
@@ -94,18 +96,19 @@
                 </div>
 
                 <!-- Menu Item 5 - Magwinya -->
-                <div class="menu-item">
-                    <img 
-                        src="images/magwinya.jpg" 
-                        srcset="images/magwinya-small.jpg 480w, images/magwinya-medium.jpg 800w, images/magwinya-large.jpg 1200w"
-                        sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
-                        alt="Magwinya Vetkoek"
-                        onerror="this.onerror=null; this.removeAttribute('srcset'); this.src='https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=800'"
-                        style="width:100%; border-radius:0.5rem; margin-bottom:1em; height:180px; object-fit:cover; display:block;">
-                    <h3>Magwinya (Vetkoek)</h3>
-                    <p>4x fresh magwinya with atchar and polony</p>
-                    <span class="price">R25.00</span>
-                </div>
+                <!-- MAGWINYA - FIXED -->
+       <div class="menu-item">
+      <img 
+              src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500"
+             srcset="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=480 480w,
+                https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800 800w"
+               sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+              alt="Magwinya Vetkoek"
+           loading="lazy">
+              <h3>Magwinya (Vetkoek)</h3>
+             <p>4x fresh magwinya with atchar and polony</p>
+           <span class="price">R25.00</span>
+          </div>
 
                 <!-- Menu Item 6 - Cold Drinks -->
                 <div class="menu-item">
