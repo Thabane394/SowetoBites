@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ST10496766.github.io/SowetoBites/sitemap.xml
