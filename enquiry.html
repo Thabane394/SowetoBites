@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enquiry - SowetoBites | Catering & Bulk Orders</title>
-    <!-- External CSS Link - LO 2.2 -->
+    <title>Enquiry - SowetoBites | Catering & Bulk Orders Quote Calculator</title>
+    <meta name="description" content="Enquire about SowetoBites catering. Get instant quote calculator for bulk kota orders in Soweto.">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        header { position: fixed; top: 0; left: 0; width: 100%; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; }
+        body { padding-top: 75px; }
+        .menu-toggle { display: none; font-size: 28px; background: none; border: none; cursor: pointer; color: #000; }
+        @media(max-width: 768px){ .menu-toggle { display: block; } .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: white; padding: 20px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); } .nav-links.show { display: flex; } }
+        .form-group { margin-bottom: 15px; } .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #ccc; }
+        .error { color: red; font-size: 0.85em; display: none; } .success { color: green; background: #e8f5e9; padding: 15px; border-radius: 5px; display: none; margin-top: 15px; }
+        #quoteBox { background: #fff3cd; border: 1px solid #ffe69c; padding: 15px; border-radius: 8px; margin: 15px 0; font-weight: bold; }
+    </style>
 </head>
 <body>
-    <!-- ==================== HEADER SECTION STARTS ==================== -->
-    <!-- Navigation uses Flexbox - LO 2.4 -->
     <header>
+        <div class="logo">Soweto<span>Bites</span></div>
+        <button class="menu-toggle" id="menuToggle">☰</button>
         <nav class="navbar">
-            <div class="logo">Soweto<span>Bites</span></div>
-            <!-- Nav Links - Flexbox with gap -->
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="products.html">Menu</a></li>
@@ -23,81 +30,125 @@
             </ul>
         </nav>
     </header>
-    <!-- ==================== HEADER SECTION ENDS ==================== -->
 
-    <!-- ==================== MAIN CONTENT STARTS ==================== -->
     <main class="container">
-        <!-- Enquiry Header Section -->
         <section class="enquiry-header">
             <h1>Catering & Bulk Enquiry</h1>
-            <p>Planning an event? Birthday, wedding, corporate? Let us cater for you with authentic Soweto flavours!</p>
+            <p>Planning an event? Get an instant quote with our calculator!</p>
         </section>
 
-        <!-- Enquiry Form Section - Uses Flexbox column layout -->
-        <!-- Form styling uses relative units em/rem/% - LO 3.2 -->
         <section class="enquiry-form-section">
-            <h2>Send Us Your Details</h2>
-            <!-- Contact Form with accessibility labels -->
-            <form class="contact-form">
-                <!-- Form Group 1 - Name -->
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" placeholder="Thabane Makoro" required>
+            <h2>Send Us Your Details + Instant Quote</h2>
+            <form class="contact-form" id="enquiryForm">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" placeholder="Thabane Makoro">
+                    <span class="error" id="nameError">Name required (min 2 letters)</span>
+                </div>
 
-                <!-- Form Group 2 - Email -->
-                <label for="email">Your Email:</label>
-                <input type="email" id="email" placeholder="thabane@example.com" required>
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" placeholder="thabane@example.com">
+                    <span class="error" id="emailError">Enter valid email</span>
+                </div>
 
-                <!-- Form Group 3 - Event Type -->
-                <label for="event">Event Type:</label>
-                <input type="text" id="event" placeholder="e.g. Birthday, Wedding, Corporate Event" required>
+                <div class="form-group">
+                    <label for="event">Event Type:</label>
+                    <select id="event">
+                        <option value="">Select event type</option>
+                        <option value="Birthday">Birthday</option>
+                        <option value="Wedding">Wedding</option>
+                        <option value="Corporate">Corporate</option>
+                        <option value="Funeral">Funeral</option>
+                        <option value="Stokvel">Stokvel</option>
+                    </select>
+                    <span class="error" id="eventError">Select event type</span>
+                </div>
 
-                <!-- Form Group 4 - Number of Guests -->
-                <label for="guests">Number of Guests:</label>
-                <input type="number" id="guests" placeholder="e.g. 50" min="1" required>
+                <div class="form-group">
+                    <label for="foodType">Food Type:</label>
+                    <select id="foodType">
+                        <option value="45">Kota Special - R45 each</option>
+                        <option value="55">Chicken Kota - R55 each</option>
+                        <option value="25">Magwinya - R25 each</option>
+                        <option value="80">Shisa Nyama + Pap - R80 each</option>
+                    </select>
+                </div>
 
-                <!-- Form Group 5 - Message -->
-                <label for="message">Tell us about your order:</label>
-                <textarea id="message" rows="5" placeholder="What food would you like? Kota? Shisa Nyama? Any dietary requirements?" required></textarea>
+                <div class="form-group">
+                    <label for="guests">Number of Guests / Quantity:</label>
+                    <input type="number" id="guests" placeholder="e.g. 50" min="1">
+                    <span class="error" id="guestsError">Enter valid number (min 1)</span>
+                </div>
 
-                <!-- Submit Button - Visual styles: hover, focus, active - LO 2.5 -->
+                <!-- PART 3: Cost Calculator - Required -->
+                <div id="quoteBox">Estimated Total: R0 - Enter quantity to calculate</div>
+
+                <div class="form-group">
+                    <label for="message">Tell us about your order:</label>
+                    <textarea id="message" rows="4" placeholder="Any dietary requirements?"></textarea>
+                </div>
+
                 <button type="submit" class="btn">Send Enquiry</button>
+                <div class="success" id="successMsg"></div>
             </form>
 
-            <!-- Alternative Contact - WhatsApp -->
             <div style="margin-top:2rem; text-align:center;">
                 <h3>Or Order Faster on WhatsApp</h3>
                 <a href="https://wa.me/27769746429?text=Hi%20SowetoBites%21%20I%20want%20to%20enquire%20about%20catering." class="btn whatsapp-btn">Chat on WhatsApp</a>
             </div>
         </section>
 
-        <!-- Catering Info Section - Extra content for research marks -->
         <section class="catering-info">
             <h2>Our Catering Packages</h2>
             <div class="menu-grid">
-                <div class="menu-item">
-                    <h3>Small Package</h3>
-                    <p>20-30 people - Kota & Chips</p>
-                    <span class="price">From R800</span>
-                </div>
-                <div class="menu-item">
-                    <h3>Medium Package</h3>
-                    <p>50-70 people - Full menu</p>
-                    <span class="price">From R2000</span>
-                </div>
-                <div class="menu-item">
-                    <h3>Large Package</h3>
-                    <p>100+ people - Shisa Nyama + Pap</p>
-                    <span class="price">From R4500</span>
-                </div>
+                <div class="menu-item"><h3>Small Package</h3><p>20-30 people - Kota & Chips</p><span class="price">From R800</span></div>
+                <div class="menu-item"><h3>Medium Package</h3><p>50-70 people - Full menu</p><span class="price">From R2000</span></div>
+                <div class="menu-item"><h3>Large Package</h3><p>100+ people - Shisa Nyama + Pap</p><span class="price">From R4500</span></div>
             </div>
         </section>
     </main>
-    <!-- ==================== MAIN CONTENT ENDS ==================== -->
 
-    <!-- ==================== FOOTER STARTS ==================== -->
-    <footer>
-        <p>&copy; 2026 SowetoBites. All Rights Reserved. | ST1049766 - WD101 Part 2</p>
-    </footer>
-    <!-- ==================== FOOTER ENDS ==================== -->
+    <footer><p>&copy; 2026 SowetoBites. All Rights Reserved. | ST1049766 - WD101 Part 2 | <a href="sitemap.xml">Sitemap</a></p></footer>
+
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', () => { document.getElementById('navLinks').classList.toggle('show'); });
+
+        // COST CALCULATOR - Part 3 Requirement
+        const guestsInput = document.getElementById('guests');
+        const foodType = document.getElementById('foodType');
+        const quoteBox = document.getElementById('quoteBox');
+        
+        function calculate() {
+            const qty = parseInt(guestsInput.value) || 0;
+            const price = parseInt(foodType.value) || 0;
+            const total = qty * price;
+            if(qty > 0) {
+                quoteBox.textContent = `Estimated Total: ${qty} x R${price} = R${total} (Delivery R20 extra)`;
+            } else {
+                quoteBox.textContent = 'Estimated Total: R0 - Enter quantity to calculate';
+            }
+        }
+        guestsInput.addEventListener('input', calculate);
+        foodType.addEventListener('change', calculate);
+
+        // FORM VALIDATION + NO RELOAD - Part 3 Requirement
+        document.getElementById('enquiryForm').addEventListener('submit', function(e){
+            e.preventDefault();
+            let valid = true;
+            if(!name.value.trim() || name.value.length < 2){ nameError.style.display='block'; valid=false; } else nameError.style.display='none';
+            if(!email.value.includes('@') || !email.value.includes('.')){ emailError.style.display='block'; valid=false; } else emailError.style.display='none';
+            if(!event.value){ eventError.style.display='block'; valid=false; } else eventError.style.display='none';
+            if(!guests.value || guests.value < 1){ guestsError.style.display='block'; valid=false; } else guestsError.style.display='none';
+            if(!valid) return;
+
+            const totalText = quoteBox.textContent;
+            successMsg.innerHTML = `✅ Thank you ${name.value}! Your ${event.value} enquiry for ${guests.value} guests is received.<br><strong>${totalText}</strong><br>We will email you at ${email.value} within 2 hours.`;
+            successMsg.style.display='block';
+            
+            // AJAX simulation - no reload
+            console.log('Enquiry submitted:', {name: name.value, email: email.value, event: event.value, guests: guests.value, total: totalText});
+        });
+    </script>
 </body>
 </html>
