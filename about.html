@@ -4,17 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - SowetoBites | Our Story & Soweto Culture</title>
-    <!-- External CSS Link - LO 2.2 -->
+    <meta name="description" content="Learn about SowetoBites story - founded 2019 in Vilakazi Street, Soweto. Authentic kotas, Ubuntu values, youth employment.">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* FEEDBACK FIX - Same fixed nav as index.html */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex; justify-content: space-between;
+            align-items: center; padding: 15px 5%;
+        }
+        body { padding-top: 75px; }
+        .menu-toggle { display: none; font-size: 28px; background: none; border: none; cursor: pointer; color: #000; }
+        @media(max-width: 768px){
+            .menu-toggle { display: block; }
+            .nav-links {
+                display: none; flex-direction: column;
+                position: absolute; top: 70px; left: 0;
+                width: 100%; background: white;
+                padding: 20px; box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            .nav-links.show { display: flex; }
+        }
+        /* Accordion for POE marks */
+        .accordion { border: 1px solid #ddd; border-radius: 5px; margin: 10px 0; }
+        .accordion-header { padding: 15px; cursor: pointer; background: #f9f9f9; font-weight: bold; }
+        .accordion-content { display: none; padding: 15px; }
+        .accordion.active .accordion-content { display: block; }
+    </style>
 </head>
 <body>
-    <!-- ==================== HEADER STARTS ==================== -->
-    <!-- Flexbox header layout - LO 2.4 -->
     <header>
+        <div class="logo">Soweto<span>Bites</span></div>
+        <button class="menu-toggle" id="menuToggle">☰</button>
         <nav class="navbar">
-            <div class="logo">Soweto<span>Bites</span></div>
-            <!-- Navigation - Flexbox with gap and relative units -->
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" class="active">About</a></li>
                 <li><a href="products.html">Menu</a></li>
@@ -23,71 +50,78 @@
             </ul>
         </nav>
     </header>
-    <!-- ==================== HEADER ENDS ==================== -->
 
-    <!-- ==================== MAIN CONTENT STARTS ==================== -->
     <main class="container">
-        <!-- About Header Section -->
         <section class="about-header">
             <h1>About SowetoBites</h1>
-            <!-- Responsive Image - LO 3.3 -->
             <img 
                 src="images/soweto-culture.jpg" 
                 srcset="images/soweto-culture-small.jpg 480w, images/soweto-culture-medium.jpg 800w, images/soweto-culture-large.jpg 1200w"
                 sizes="(max-width: 480px) 100vw, (max-width: 768px) 80vw, 60vw"
-                alt="Soweto Vilakazi Street culture and community"
+                alt="Soweto Vilakazi Street culture and community - SowetoBites location"
                 onerror="this.onerror=null; this.removeAttribute('srcset'); this.src='https://images.unsplash.com/photo-1580060868584-35ec1b3c2fa8?w=1200'"
                 style="width:100%; max-width:37.5rem; border-radius:0.5rem; margin:1.5em auto; display:block;">
         </section>
 
-        <!-- Our Story Section - Enhanced for Content Research marks -->
         <section class="story-section">
             <h2>Our Story</h2>
             <p><strong>Our Story:</strong> SowetoBites was founded in 2019 to bring authentic township flavors to the heart of Soweto. We started with one grill and a dream to serve the best kotas in the hood. Our founder grew up in Orlando West, learning family recipes from his grandmother who sold magwinya on Vilakazi Street in the 1980s.</p>
-            <p>What began as a small container shop now serves over 200 customers daily. We still use the same wood-fire grill and secret spice mix passed down for three generations. Every Kota is made with love and Soweto pride.</p>
+            <p>What began as a small container shop now serves over 200 customers daily. We still use the same wood-fire grill and secret spice mix passed down for three generations.</p>
         </section>
 
-        <!-- Mission & Vision - Grid layout for responsiveness -->
         <section class="mission-vision">
             <div class="menu-grid">
-                <!-- Mission Card -->
-                <div class="menu-item">
-                    <h2>Our Mission</h2>
-                    <p>To serve affordable, delicious, and fast street food while creating jobs and supporting our local community. We source all our bread, meat, and vegetables from Soweto local suppliers, creating a circular township economy.</p>
-                </div>
-                <!-- Vision Card -->
-                <div class="menu-item">
-                    <h2>Our Vision</h2>
-                    <p>To become Soweto's most trusted takeaway brand known for quality, speed, and good vibes. In 5 years, we want to franchise to 10 townships while keeping our Vilakazi Street roots.</p>
-                </div>
-                <!-- Values Card - Extra content for marks -->
-                <div class="menu-item">
-                    <h2>Our Values</h2>
-                    <p><strong>Ubuntu:</strong> Community first. <strong>Quality:</strong> Fresh daily. <strong>Affordability:</strong> Student prices. <strong>Culture:</strong> Preserving Kasi flavours.</p>
-                </div>
+                <div class="menu-item"><h2>Our Mission</h2><p>To serve affordable, delicious, and fast street food while creating jobs and supporting our local community.</p></div>
+                <div class="menu-item"><h2>Our Vision</h2><p>To become Soweto's most trusted takeaway brand known for quality, speed, and good vibes.</p></div>
+                <div class="menu-item"><h2>Our Values</h2><p><strong>Ubuntu:</strong> Community first. <strong>Quality:</strong> Fresh daily. <strong>Affordability:</strong> Student prices.</p></div>
             </div>
         </section>
 
-        <!-- Soweto Culture Section - Shows deeper research - Fixes 2/10 content -->
         <section class="culture-section">
             <h2>Why Vilakazi Street?</h2>
-            <p>Vilakazi Street is the only street in the world where two Nobel Peace Prize winners lived - Nelson Mandela and Archbishop Desmond Tutu. Located in Orlando West, Soweto, it is a hub of South African history and culture. SowetoBites is proud to be part of this legacy, serving tourists and locals who visit the Hector Pieterson Museum and Mandela House.</p>
-            <p><strong>What is Kota?</strong> Kota, also known as Bunny Chow, is a quarter loaf of bread hollowed out and filled with chips, cheese, polony, Russian sausage, and atchar. It originated in Durban but became iconic Soweto street food in the 1970s. Our Kota Special (R45) is our tribute to this history.</p>
+            <p>Vilakazi Street is the only street in the world where two Nobel Peace Prize winners lived - Nelson Mandela and Archbishop Desmond Tutu. SowetoBites is proud to be part of this legacy.</p>
+            <p><strong>What is Kota?</strong> Kota is a quarter loaf of bread hollowed out and filled with chips, cheese, polony, Russian and atchar. It became iconic Soweto street food in the 1970s.</p>
         </section>
 
-        <!-- Team Section -->
+        <!-- POE PART 3: Accordion - Interactive Element 2.1 -->
+        <section style="margin-top:2rem;">
+            <h2>FAQs</h2>
+            <div class="accordion">
+                <div class="accordion-header">Do you deliver in Soweto?</div>
+                <div class="accordion-content">Yes! We deliver within 10km of Vilakazi Street. R20 delivery fee. Free delivery over R200.</div>
+            </div>
+            <div class="accordion">
+                <div class="accordion-header">What are your hours?</div>
+                <div class="accordion-content">Monday - Sunday: 10am - 9pm. We are open on public holidays.</div>
+            </div>
+            <div class="accordion">
+                <div class="accordion-header">Do you do catering for events?</div>
+                <div class="accordion-content">Yes, we cater for birthdays, funerals, and stokvels. See Enquiry page for quote calculator.</div>
+            </div>
+        </section>
+
         <section class="team-section" style="text-align:center; margin-top:2rem;">
             <h2>Meet the Team</h2>
-            <p>We are 5 young people from Soweto - cooks, drivers, and dreamers. When you buy from SowetoBites, you support local youth employment.</p>
+            <p>We are 5 young people from Soweto - cooks, drivers, and dreamers.</p>
             <a href="contact.html" class="btn">Visit Us</a>
         </section>
     </main>
-    <!-- ==================== MAIN CONTENT ENDS ==================== -->
 
-    <!-- ==================== FOOTER STARTS ==================== -->
     <footer>
-        <p>&copy; 2026 SowetoBites. All Rights Reserved. | WEDE5020 - ST1049766 - Part 2: Designing Visuals</p>
+        <p>&copy; 2026 SowetoBites. All Rights Reserved. | WEDE5020 - ST1049766 | <a href="sitemap.xml">Sitemap</a></p>
     </footer>
-    <!-- ==================== FOOTER ENDS ==================== -->
+
+    <script>
+        // Hamburger
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('show');
+        });
+        // Accordion
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
