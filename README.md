@@ -77,6 +77,48 @@ The site has 5 pages all linked from Home:
 ### [1.0] - Initial Part 1 Submission
 - Created 5 HTML pages, basic style.css
 
+ ### [3.0] - 2026-10-26 - Part 3: Adding Interactivity and SEO (FINAL POE)
+
+#### Fixed from Part 2 Feedback (95% -> aiming 100%)
+- FIXED Hiding Navigation on Home: Changed header to `position: fixed; top:0; width:100%; background:#fff; box-shadow; z-index:1000;` - nav now always visible on scroll
+- Added hamburger toggle (☰) for mobile with JS: menuToggle + navLinks.show class
+- Applied consistently across all 5 pages
+
+#### 2.1 Interactive Elements Added (Requirement 2.1)
+- Hamburger Menu Toggle - All pages - click ☰ to open/close nav
+- Tabs Filtering - products.html - All / Kotas / Burgers / Plates
+- Accordion FAQ - about.html - 3 FAQs about SowetoBites, Halal, Delivery
+- Lightbox Gallery - products.html - Click image to enlarge (modal)
+- Cost Calculator - enquiry.html - Calculates (guests x R45 + delivery) = total in real time
+
+#### 2.2 Dynamic Content (Requirement 2.2)
+- Menu loaded from JS array (menuData) - not hardcoded HTML - products.html
+- Live search filter - search box filters kota, burger, shisa nyama instantly
+- Interactive Leaflet Map - contact.html - OpenStreetMap with marker at Vilakazi Street (-26.235, 27.908)
+- Dynamic total price updates without page reload
+
+#### Section 4: Forms and Validation (Requirement 4)
+- enquiry.html: Full JS validation - name, email regex, guests number, event type - shows error messages in red
+- Prevent default submission (e.preventDefault) - no reload
+- Quote calculator: qty x price logic
+- Success message: "Enquiry Sent! We will WhatsApp you"
+- contact.html: Form compiles into mailto email (user's email client)
+- WhatsApp ordering links kept: wa.me/27769746429
+
+#### SEO Optimization (Requirement)
+- Meta description + keywords on all pages (e.g. Best Kotas in Soweto, Vilakazi Street)
+- Optimized titles with keywords
+- Alt text for all images with keywords (e.g. Kota Special Soweto - quarter loaf)
+- robots.txt created - Allow all + Sitemap link
+- sitemap.xml created - 5 pages listed with priority
+- Live link updated: https://thabane394.github.io/SowetoBites/
+
+#### References Added for Part 3
+- Leaflet.js - https://leafletjs.com - Interactive map
+- OpenStreetMap tiles - Map data
+- Unsplash - Kota Special, Magwinya images with srcset optimization
+
+
 ## References
 - South African History Online. (2024). Soweto. Available at: https://www.sahistory.org.za
 - The IIE. (2026). WD101 Learning Unit 2: CSS Styling.
