@@ -3,14 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - SowetoBites | Kota, Shisa Nyama, Magwinya</title>
+    <title>Menu - SowetoBites | Best Kotas, Burgers & Shisa Nyama in Soweto</title>
+    <meta name="description" content="SowetoBites Menu: Kota Special R45, Chicken Burger R35, Shisa Nyama R85, Magwinya R25. Order on WhatsApp Vilakazi Street.">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        header { position: fixed; top: 0; left: 0; width: 100%; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; }
+        body { padding-top: 75px; }
+        .menu-toggle { display: none; font-size: 28px; background: none; border: none; cursor: pointer; color: #000; }
+        @media(max-width: 768px){ .menu-toggle { display: block; } .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: white; padding: 20px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); } .nav-links.show { display: flex; } }
+        /* Tabs */
+        .tabs { display: flex; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+        .tab-btn { padding: 10px 20px; border: 1px solid #000; background: white; cursor: pointer; border-radius: 20px; transition: 0.3s; }
+        .tab-btn.active, .tab-btn:hover { background: #000; color: white; transform: scale(1.05); }
+        /* Lightbox */
+        #lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; }
+        #lightbox.show { display: flex; }
+        #lightbox img { max-width: 90%; max-height: 80%; border-radius: 10px; }
+        .menu-item { transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+        .menu-item:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+        #searchBox { padding: 12px; width: 100%; max-width: 400px; border-radius: 25px; border: 1px solid #ccc; margin: 15px 0; }
+    </style>
 </head>
 <body>
     <header>
+        <div class="logo">Soweto<span>Bites</span></div>
+        <button class="menu-toggle" id="menuToggle">☰</button>
         <nav class="navbar">
-            <div class="logo">Soweto<span>Bites</span></div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="products.html" class="active">Menu</a></li>
@@ -23,92 +42,89 @@
     <main class="container">
         <section class="menu-header">
             <h1>Our Menu</h1>
-            <p>Authentic Soweto street food made with love - Real prices from Vilakazi Street vendors</p>
+            <p>Authentic Soweto street food - Search or filter by category</p>
+            <input type="text" id="searchBox" placeholder="Search menu... e.g. Kota, Burger">
+            <div class="tabs">
+                <button class="tab-btn active" data-category="all">All</button>
+                <button class="tab-btn" data-category="kota">Kotas</button>
+                <button class="tab-btn" data-category="burger">Burgers & Chips</button>
+                <button class="tab-btn" data-category="plate">Plates & Drinks</button>
+            </div>
         </section>
 
         <section class="menu">
-            <div class="menu-grid">
-
-                <!-- KOTA SPECIAL - FIXED (removed outer div) -->
-                <div class="menu-item">
-                    <img 
-                        src="https://images.unsplash.com/photo-1521390188846-e2a3a97453a0?w=500"
-                        srcset="https://images.unsplash.com/photo-1521390188846-e2a3a97453a0?w=480 480w, https://images.unsplash.com/photo-1521390188846-e2a3a97453a0?w=800 800w"
-                        sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
-                        alt="Kota Special - Quarter loaf with chips, Russian, cheese"
-                        loading="lazy"
-                        style="width:100%; border-radius:0.5rem; margin-bottom:1em; height:180px; object-fit:cover; display:block;">
-                    <h3>Kota Special</h3>
-                    <p>Quarter loaf, chips, Russian, cheese, egg, special sauces. Best seller in Soweto!</p>
-                    <span class="price">R45.00</span>
-                </div>
-
-                <div class="menu-item">
-                    <img src="images/chicken-burger.jpg" 
-                         alt="Chicken Burger"
-                         onerror="this.onerror=null; this.removeAttribute('srcset'); this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?w=800'"
-                         style="width:100%; border-radius:0.5rem; margin-bottom:1em; height:180px; object-fit:cover; display:block;">
-                    <h3>Chicken Burger</h3>
-                    <p>Crispy chicken fillet, lettuce, tomato, mayo, served with small chips</p>
-                    <span class="price">R35.00</span>
-                </div>
-
-                <div class="menu-item">
-                    <img src="images/chips-russian.jpg" 
-                         alt="Chips and Russian"
-                         onerror="this.onerror=null; this.removeAttribute('srcset'); this.src='https://images.unsplash.com/photo-1585109649139-366815a0d713?w=800'"
-                         style="width:100%; border-radius:0.5rem; margin-bottom:1em; height:180px; object-fit:cover; display:block;">
-                    <h3>Chips & Russian</h3>
-                    <p>Large chips with 2 Russians and our secret tomato sauce</p>
-                    <span class="price">R30.00</span>
-                </div>
-
-                <div class="menu-item">
-                    <img src="images/shisa-nyama.jpg" 
-                         alt="Shisa Nyama Plate"
-                         onerror="this.onerror=null; this.removeAttribute('srcset'); this.src='https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=800'"
-                         style="width:100%; border-radius:0.5rem; margin-bottom:1em; height:180px; object-fit:cover; display:block;">
-                    <h3>Shisa Nyama Plate</h3>
-                    <p>Grilled beef steak, pap, chakalaka and gravy - Weekend special</p>
-                    <span class="price">R85.00</span>
-                </div>
-
-                <!-- MAGWINYA - FIXED (removed outer div) -->
-                <div class="menu-item">
-                    <img 
-                        src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500"
-                        srcset="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=480 480w, https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800 800w"
-                        sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
-                        alt="Magwinya Vetkoek"
-                        loading="lazy"
-                        style="width:100%; border-radius:0.5rem; margin-bottom:1em; height:180px; object-fit:cover; display:block;">
-                    <h3>Magwinya (Vetkoek)</h3>
-                    <p>4x fresh magwinya with atchar and polony</p>
-                    <span class="price">R25.00</span>
-                </div>
-
-                <div class="menu-item">
-                    <img src="images/drinks.jpg" 
-                         alt="Cold Drinks"
-                         onerror="this.onerror=null; this.removeAttribute('srcset'); this.src='https://images.unsplash.com/photo-1554866585-cd94860890b7?w=800'"
-                         style="width:100%; border-radius:0.5rem; margin-bottom:1em; height:180px; object-fit:cover; display:block;">
-                    <h3>Cold Drinks</h3>
-                    <p>Coke, Fanta, Sprite, Stoney - 500ml</p>
-                    <span class="price">R15.00</span>
-                </div>
-
+            <div class="menu-grid" id="menuGrid">
+                <!-- Loaded dynamically via JS - Part 3 Requirement 2.2 -->
             </div>
         </section>
 
         <section class="order-section" style="text-align:center; margin-top:2rem;">
             <h2>Ready to Order?</h2>
-            <p>Click below to order directly on WhatsApp - Fast delivery in Soweto!</p>
             <a href="https://wa.me/27769746429?text=Hi%20SowetoBites%21%20I%20would%20like%20to%20place%20an%20order." class="btn whatsapp-btn">Order on WhatsApp</a>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 SowetoBites. All Rights Reserved. | ST1049766 - WEDE5020 </p>
-    </footer>
+    <!-- Lightbox Modal -->
+    <div id="lightbox"><img id="lightboxImg" src="" alt="Menu item enlarged"><span style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;" id="closeLightbox">&times;</span></div>
+
+    <footer><p>&copy; 2026 SowetoBites. All Rights Reserved. | ST1049766 - WEDE5020 | <a href="sitemap.xml">Sitemap</a></p></footer>
+
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', () => { document.getElementById('navLinks').classList.toggle('show'); });
+
+        // DYNAMIC CONTENT - Part 3: Menu from Array
+        const menuData = [
+            { name: "Kota Special", cat: "kota", price: "R45.00", desc: "Quarter loaf, chips, Russian, cheese, egg, special sauces. Best seller!", img: "https://images.unsplash.com/photo-1521390188846-e2a3a97453a0?w=500", alt: "Kota Special Soweto - quarter loaf with chips and Russian" },
+            { name: "Chicken Burger", cat: "burger", price: "R35.00", desc: "Crispy chicken fillet, lettuce, tomato, mayo, with small chips", img: "images/chicken-burger.jpg", fallback: "https://images.unsplash.com/photo-1550547660-d9450f859349?w=800", alt: "Chicken Burger SowetoBites" },
+            { name: "Chips & Russian", cat: "burger", price: "R30.00", desc: "Large chips with 2 Russians and secret tomato sauce", img: "images/chips-russian.jpg", fallback: "https://images.unsplash.com/photo-1585109649139-366815a0d713?w=800", alt: "Chips and Russian sausage Soweto" },
+            { name: "Shisa Nyama Plate", cat: "plate", price: "R85.00", desc: "Grilled beef steak, pap, chakalaka and gravy - Weekend special", img: "images/shisa-nyama.jpg", fallback: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=800", alt: "Shisa Nyama plate with pap and chakalaka" },
+            { name: "Magwinya (Vetkoek)", cat: "plate", price: "R25.00", desc: "4x fresh magwinya with atchar and polony", img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500", alt: "Magwinya vetkoek with atchar" },
+            { name: "Cold Drinks", cat: "plate", price: "R15.00", desc: "Coke, Fanta, Sprite, Stoney - 500ml", img: "images/drinks.jpg", fallback: "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=800", alt: "Cold drinks SowetoBites" }
+        ];
+
+        const grid = document.getElementById('menuGrid');
+        function renderMenu(filterCat = 'all', searchTerm = '') {
+            grid.innerHTML = '';
+            menuData.filter(item => {
+                const matchCat = filterCat === 'all' || item.cat === filterCat;
+                const matchSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) || item.desc.toLowerCase().includes(searchTerm.toLowerCase());
+                return matchCat && matchSearch;
+            }).forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'menu-item';
+                div.innerHTML = `
+                    <img src="${item.img}" alt="${item.alt}" onerror="this.src='${item.fallback || item.img}'" style="width:100%; border-radius:0.5rem; margin-bottom:1em; height:180px; object-fit:cover; display:block;">
+                    <h3>${item.name}</h3>
+                    <p>${item.desc}</p>
+                    <span class="price">${item.price}</span>
+                `;
+                div.querySelector('img').addEventListener('click', () => openLightbox(item.img));
+                grid.appendChild(div);
+            });
+        }
+        renderMenu();
+
+        // Tabs
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderMenu(btn.dataset.category, document.getElementById('searchBox').value);
+            });
+        });
+
+        // Search
+        document.getElementById('searchBox').addEventListener('input', (e) => {
+            const activeCat = document.querySelector('.tab-btn.active').dataset.category;
+            renderMenu(activeCat, e.target.value);
+        });
+
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        function openLightbox(src){ lightboxImg.src = src; lightbox.classList.add('show'); }
+        document.getElementById('closeLightbox').addEventListener('click', () => lightbox.classList.remove('show'));
+        lightbox.addEventListener('click', (e) => { if(e.target === lightbox) lightbox.classList.remove('show'); });
+    </script>
 </body>
 </html>
